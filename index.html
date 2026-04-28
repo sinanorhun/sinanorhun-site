@@ -358,6 +358,7 @@
             background: var(--bg-alt);
             transition: transform 0.3s ease;
             margin: 0;
+            cursor: zoom-in;
         }
         .photo-grid figure:hover { transform: translateY(-3px); }
         .photo-grid figure:hover figcaption { opacity: 1; }
@@ -385,6 +386,67 @@
         @media (max-width: 700px) {
             .photo-grid { grid-template-columns: repeat(2, 1fr); gap: 6px; }
         }
+
+        /* LIGHTBOX */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 8, 6, 0.92);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 24px;
+            cursor: zoom-out;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+        }
+        .lightbox.active {
+            display: flex;
+            animation: lbFade 0.25s ease-out;
+        }
+        @keyframes lbFade {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .lightbox-img-wrap {
+            max-width: 90vw;
+            max-height: 90vh;
+            position: relative;
+        }
+        .lightbox img {
+            max-width: 90vw;
+            max-height: 85vh;
+            object-fit: contain;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border-radius: 2px;
+            display: block;
+        }
+        .lightbox-caption {
+            text-align: center;
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 14px;
+            color: rgba(245, 241, 232, 0.85);
+            margin-top: 16px;
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            background: none;
+            border: none;
+            color: rgba(245, 241, 232, 0.7);
+            font-family: var(--sans);
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            cursor: pointer;
+            padding: 8px 14px;
+            transition: color 0.2s ease;
+        }
+        .lightbox-close:hover { color: #fff; }
 
         /* CONTACT */
         .contact-block {
@@ -491,16 +553,19 @@
             <div class="about-grid">
                 <div class="about-text">
                     <p>
-                        I'm <em>Sinan</em>, an American who grew up in Istanbul and moved to New York in March 2026 to build a sales career in a serious environment.
+                        I'm <em>Sinan</em>, Turkish and American. I grew up in Istanbul and moved to New York in March 2026.
                     </p>
                     <p>
-                        I've spent the last six years learning how outbound actually works. At 20, I cold-called 6,000 villa owners during COVID and signed 85 paying partners on a third-party hygiene certification I built from scratch. Later I ran a small Amazon growth agency, acquiring clients cold and retaining them with 128% net revenue retention. Most recently I'm a BDR at <em>Stuut</em>, an a16z-backed AI accounts receivable platform, running 200+ dials a day into finance leaders.
+                        My first sales job was at <em>14</em>, working at a friend's family stand inside the Grand Bazaar selling jewelry to tourists. Three different languages, a small piece of foot traffic, and the hourly reminder that the customer in front of you can walk away in two seconds. That's where the muscle started.
                     </p>
                     <p>
-                        Alongside that, I'm the E-Commerce Brands Growth Operator at <em>Zenith Holdings</em>, a small NYC-based D2C holding company running three consumer brands. My day-to-day is paid media, customer discovery, retention, and the unglamorous operational work that makes brands compound.
+                        Six years of outbound have followed since. At 20, I cold-called 6,000 villa owners during COVID and signed 85 paying partners on a third-party hygiene certification I built from scratch. Later I ran a small Amazon growth agency, acquiring clients cold and retaining them with 128% net revenue retention. Most recently I'm a BDR at <em>Stuut</em>, an a16z-backed AI accounts receivable platform, running 200+ dials a day into finance leaders.
                     </p>
                     <p>
-                        What pulls me toward sales as a long-term craft: it's the only work where effort doesn't save you and polish doesn't save you. Either the person on the other end of the line is better off for having talked to you, or they aren't. That's the part I keep coming back to.
+                        Alongside that, I run growth across three D2C consumer brands: <em>Marcus Pierce</em> (men's apparel), <em>Reverie</em> (supplements), and <em>Vicarious</em> (artisan peanut butter). My day-to-day is paid media, customer discovery, retention, and the unglamorous operational work that makes brands compound.
+                    </p>
+                    <p>
+                        The thread through all of it is the same. I like work where the feedback loop is short and the result is honest. Sales does that better than anything else I've found.
                     </p>
                 </div>
                 <div class="about-photo">
@@ -528,8 +593,8 @@
                     <div class="exp-date">2025 — NOW</div>
                     <div class="exp-content">
                         <h3>E-Commerce Brands Growth Operator</h3>
-                        <div class="exp-company">Zenith Holdings, New York</div>
-                        <p>Leading revenue operations and growth strategy across three D2C brands. Drove ROAS from 1.8x to 2.6x (a 44% improvement) while reducing customer acquisition costs by 20%, partnering with cross-functional teams from supply to creative.</p>
+                        <div class="exp-company">Marcus Pierce · Reverie · Vicarious, New York</div>
+                        <p>Leading revenue operations and growth strategy across three D2C brands: Marcus Pierce (men's apparel), Reverie (supplements), and Vicarious (artisan peanut butter). Drove ROAS from 1.8x to 2.6x (a 44% improvement) while reducing customer acquisition costs by 20%.</p>
                     </div>
                 </li>
                 <li class="exp-item">
@@ -572,6 +637,22 @@
                         <p>Built a B2B hygiene certification for short-term rentals during the first wave of COVID. Cold-called roughly 6,000 villa owners over three months and signed 85 paying partners. The business that taught me cold outreach is a learning game, not a volume game.</p>
                     </div>
                 </li>
+                <li class="exp-item">
+                    <div class="exp-date">2019</div>
+                    <div class="exp-content">
+                        <h3>Tennis Instructor</h3>
+                        <div class="exp-company">Club Med, Antalya</div>
+                        <p>Summer working as a GO at a 5-star resort in Kemer. Ran group tennis sessions, hosted tournaments, and learned how to keep a hundred guests engaged in a language not all of them shared. The first time I really understood that sales is performance.</p>
+                    </div>
+                </li>
+                <li class="exp-item">
+                    <div class="exp-date">2015 — 2016</div>
+                    <div class="exp-content">
+                        <h3>Salesman</h3>
+                        <div class="exp-company">Grand Bazaar, Istanbul</div>
+                        <p>Started at 14 working a jewelry stand inside the world's oldest covered market. Sold roughly $100K worth of merchandise across the year, learned to read tourists across three languages, and got my first lessons in negotiation, demand cycles, and the discipline of standing on your feet for nine hours.</p>
+                    </div>
+                </li>
             </ul>
         </section>
     </div>
@@ -592,7 +673,8 @@
                     </div>
                 </a>
 
-                <a href="https://open.spotify.com/show/1GdvZBoGuKr3rc61GCrKMn" target="_blank" rel="noopener" class="project">
+                <a href="https://open.spotify.com/show/1GdvZBoGuKr3rc61GCrKMn" target="_blank" rel="noopener" class="project project-with-photo">
+                    <div class="project-photo"><img src="images/podcast.jpg" alt="Serbest Uçuş Saatleri podcast"></div>
                     <div class="project-body">
                         <div class="project-meta">PODCAST · TURKISH</div>
                         <h3><em>Serbest Uçuş Saatleri</em></h3>
@@ -602,20 +684,20 @@
                 </a>
 
                 <div class="project project-with-photo">
-                    <div class="project-photo"><img src="images/standup.jpg" alt="On stage"></div>
-                    <div class="project-body">
-                        <div class="project-meta">STAND-UP · 2025 —</div>
-                        <h3>Open mics, occasionally</h3>
-                        <p>The best craft training I've found for sales: write material, test it on real people, take the immediate and brutal feedback, go home and rewrite. Currently performing at open mics in NYC.</p>
-                    </div>
-                </div>
-
-                <div class="project project-with-photo">
                     <div class="project-photo"><img src="images/hosting.jpg" alt="Hosting on the Bosphorus"></div>
                     <div class="project-body">
                         <div class="project-meta">HOSTING · 2018 — 2022</div>
                         <h3>University dance show emcee</h3>
                         <p>Hosted year-end shows for the dance club at Koç University. Introduced acts, kept the energy in the room between numbers, and figured out you can only fake comfort on a microphone for about thirty seconds before the audience knows.</p>
+                    </div>
+                </div>
+
+                <div class="project project-with-photo">
+                    <div class="project-photo"><img src="images/standup.jpg" alt="On stage"></div>
+                    <div class="project-body">
+                        <div class="project-meta">STAND-UP · 2025 —</div>
+                        <h3>Open mics, occasionally</h3>
+                        <p>Did a couple of shows in Istanbul. Now planning my first set in New York. The best craft training I've found for sales: write material, test it on real people, take the immediate and brutal feedback, go home and rewrite.</p>
                     </div>
                 </div>
 
@@ -647,23 +729,23 @@
                 <strong>Basketball</strong> is the love. NBA mostly, with permanent residency in the LeBron James cinematic universe. <strong>Beşiktaş</strong> in football, no negotiation. <strong>Federer</strong> in tennis, also no negotiation. I read more nonfiction than I should and watch more bad late-night TV than I'd admit. Most weekends I'm on a padel court or in a corner of New York that I haven't seen yet.
             </p>
             <div class="photo-grid">
-                <figure>
+                <figure data-full="images/basketball.jpg" data-caption="At the NBA Store, holding the only Wilson that mattered.">
                     <img src="images/basketball.jpg" alt="At the NBA store">
                     <figcaption>Basketball</figcaption>
                 </figure>
-                <figure>
+                <figure data-full="images/besiktas.jpg" data-caption="Beşiktaş Gymnastics Club, Istanbul.">
                     <img src="images/besiktas.jpg" alt="At Beşiktaş">
                     <figcaption>Beşiktaş</figcaption>
                 </figure>
-                <figure>
+                <figure data-full="images/tennis.jpg" data-caption="Business Tennis Cup, Istanbul.">
                     <img src="images/tennis.jpg" alt="On the court">
                     <figcaption>Tennis</figcaption>
                 </figure>
-                <figure>
+                <figure data-full="images/padel.jpg" data-caption="Padel doubles, fall season.">
                     <img src="images/padel.jpg" alt="Padel polaroid">
                     <figcaption>Padel</figcaption>
                 </figure>
-                <figure>
+                <figure data-full="images/twigy.jpg" data-caption="Çarşı.">
                     <img src="images/twigy.jpg" alt="Twigy with a Beşiktaş kit">
                     <figcaption>Çarşı</figcaption>
                 </figure>
@@ -698,6 +780,56 @@
             <p>SINAN ORHUN · NEW YORK · 2026</p>
         </div>
     </footer>
+
+    <!-- LIGHTBOX (for click-to-expand photos) -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+        <button class="lightbox-close" aria-label="Close">Close ✕</button>
+        <div class="lightbox-img-wrap">
+            <img id="lightbox-img" src="" alt="">
+            <p class="lightbox-caption" id="lightbox-caption"></p>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxCaption = document.getElementById('lightbox-caption');
+            const closeBtn = lightbox.querySelector('.lightbox-close');
+            const figures = document.querySelectorAll('.photo-grid figure');
+
+            function openLightbox(figure) {
+                const fullSrc = figure.getAttribute('data-full');
+                const caption = figure.getAttribute('data-caption') || '';
+                lightboxImg.src = fullSrc;
+                lightboxImg.alt = caption;
+                lightboxCaption.textContent = caption;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeLightbox() {
+                lightbox.classList.remove('active');
+                lightboxImg.src = '';
+                document.body.style.overflow = '';
+            }
+
+            figures.forEach(function(figure) {
+                figure.addEventListener('click', function() { openLightbox(figure); });
+            });
+
+            // Click anywhere on the backdrop to close (the lightbox-img-wrap stops propagation)
+            lightbox.addEventListener('click', function(e) {
+                if (e.target === lightbox) closeLightbox();
+            });
+            closeBtn.addEventListener('click', closeLightbox);
+
+            // Press Escape to close
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
+            });
+        })();
+    </script>
 
 </body>
 </html>
