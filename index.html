@@ -61,16 +61,10 @@
         .top-bar {
             padding: 40px 0 20px;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: baseline;
         }
-        .logo {
-            font-family: var(--serif);
-            font-size: 17px;
-            font-weight: 500;
-            font-style: italic;
-        }
-        .nav { display: flex; gap: 28px; font-family: var(--sans); font-size: 13px; }
+        .nav { display: flex; gap: 32px; font-family: var(--sans); font-size: 13px; }
         .nav a {
             color: var(--ink-soft);
             text-decoration: none;
@@ -125,24 +119,8 @@
             color: var(--ink-soft);
             max-width: 560px;
         }
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 180px;
-            gap: 40px;
-            align-items: end;
-        }
-        .hero-photo {
-            border-radius: 2px;
-            overflow: hidden;
-            box-shadow: 0 12px 32px rgba(26, 22, 18, 0.18);
-            transform: rotate(1.5deg);
-            transition: transform 0.4s ease;
-        }
-        .hero-photo:hover { transform: rotate(0deg); }
 
         @media (max-width: 700px) {
-            .hero-content { grid-template-columns: 1fr; gap: 32px; }
-            .hero-photo { max-width: 200px; }
             .hero { padding: 56px 0 44px; }
             .hero-tagline { font-size: 19px; }
         }
@@ -192,6 +170,16 @@
         }
         .about-text p:last-child { margin-bottom: 0; }
         .about-text em { font-style: italic; color: var(--accent); }
+        .about-text a {
+            color: inherit;
+            text-decoration: none;
+            border-bottom: 1px solid var(--rule);
+            transition: border-color 0.2s ease, color 0.2s ease;
+        }
+        .about-text a:hover {
+            border-bottom-color: var(--accent);
+        }
+        .about-text a em { color: var(--accent); }
 
         .about-photo {
             border-radius: 2px;
@@ -247,6 +235,26 @@
             font-size: 17px;
             color: var(--ink-soft);
             margin-bottom: 12px;
+        }
+        .exp-content .exp-company a {
+            color: inherit;
+            text-decoration: none;
+            border-bottom: 1px solid var(--rule);
+            transition: border-color 0.2s ease, color 0.2s ease;
+        }
+        .exp-content .exp-company a:hover {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+        .exp-content p a {
+            color: inherit;
+            text-decoration: none;
+            border-bottom: 1px solid var(--rule);
+            transition: border-color 0.2s ease, color 0.2s ease;
+        }
+        .exp-content p a:hover {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
         }
         .exp-content p {
             font-size: 16px;
@@ -518,7 +526,6 @@
     <!-- TOP BAR -->
     <div class="container">
         <header class="top-bar">
-            <div class="logo">Sinan Orhun</div>
             <nav class="nav">
                 <a href="#about">About</a>
                 <a href="#experience">Work</a>
@@ -532,17 +539,10 @@
     <div class="container">
         <section class="hero fade-in">
             <div class="hero-eyebrow"><span class="dot"></span>NEW YORK · ISTANBUL</div>
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1>Sinan <em>Orhun</em>.</h1>
-                    <p class="hero-tagline">
-                        Sales, operating, and the occasional set of stand-up. Currently figuring out how AI changes the way enterprises buy, one cold call at a time.
-                    </p>
-                </div>
-                <div class="hero-photo">
-                    <img src="images/hero-nyc.jpg" alt="Sinan in New York City">
-                </div>
-            </div>
+            <h1>Sinan <em>Orhun</em>.</h1>
+            <p class="hero-tagline">
+                Sales, operating, and the occasional set of stand-up. Currently figuring out how AI changes the way enterprises buy, one cold call at a time.
+            </p>
         </section>
     </div>
 
@@ -562,7 +562,7 @@
                         Six years of outbound have followed since. At 20, I cold-called 6,000 villa owners during COVID and signed 85 paying partners on a third-party hygiene certification I built from scratch. Later I ran a small Amazon growth agency, acquiring clients cold and retaining them with 128% net revenue retention. Most recently I'm a BDR at <em>Stuut</em>, an a16z-backed AI accounts receivable platform, running 200+ dials a day into finance leaders.
                     </p>
                     <p>
-                        Alongside that, I run growth across three D2C consumer brands: <em>Marcus Pierce</em> (men's apparel), <em>Reverie</em> (supplements), and <em>Vicarious</em> (artisan peanut butter). My day-to-day is paid media, customer discovery, retention, and the unglamorous operational work that makes brands compound.
+                        Alongside that, I run growth across three D2C consumer brands: <a href="https://shopmarcuspierce.com" target="_blank" rel="noopener"><em>Marcus Pierce</em></a> (men's apparel), <a href="https://reveriewellness.co" target="_blank" rel="noopener"><em>Reverie</em></a> (supplements), and <em>Vicarious</em> (artisan peanut butter). My day-to-day is paid media, customer discovery, retention, and the unglamorous operational work that makes brands compound.
                     </p>
                     <p>
                         The thread through all of it is the same. I like work where the feedback loop is short and the result is honest. Sales does that better than anything else I've found.
@@ -593,8 +593,8 @@
                     <div class="exp-date">2025 — NOW</div>
                     <div class="exp-content">
                         <h3>E-Commerce Brands Growth Operator</h3>
-                        <div class="exp-company">Marcus Pierce · Reverie · Vicarious, New York</div>
-                        <p>Leading revenue operations and growth strategy across three D2C brands: Marcus Pierce (men's apparel), Reverie (supplements), and Vicarious (artisan peanut butter). Drove ROAS from 1.8x to 2.6x (a 44% improvement) while reducing customer acquisition costs by 20%.</p>
+                        <div class="exp-company"><a href="https://shopmarcuspierce.com" target="_blank" rel="noopener">Marcus Pierce</a> · <a href="https://reveriewellness.co" target="_blank" rel="noopener">Reverie</a> · Vicarious, New York</div>
+                        <p>Leading revenue operations and growth strategy across three D2C brands: <a href="https://shopmarcuspierce.com" target="_blank" rel="noopener">Marcus Pierce</a> (men's apparel), <a href="https://reveriewellness.co" target="_blank" rel="noopener">Reverie</a> (supplements), and Vicarious (artisan peanut butter). Drove ROAS from 1.8x to 2.6x (a 44% improvement) while reducing customer acquisition costs by 20%.</p>
                     </div>
                 </li>
                 <li class="exp-item">
