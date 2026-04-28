@@ -567,11 +567,31 @@
             text-align: center;
             border-top: 1px solid var(--rule);
         }
-        footer p {
+        .back-to-top {
+            display: inline-block;
+            font-family: var(--sans);
+            font-size: 12px;
+            color: var(--ink-muted);
+            text-decoration: none;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 28px;
+            transition: color 0.2s ease;
+        }
+        .back-to-top:hover { color: var(--accent); }
+        .footer-line {
             font-family: var(--sans);
             font-size: 12px;
             color: var(--ink-muted);
             letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+        .footer-personal {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 13px;
+            color: var(--ink-muted);
+            opacity: 0.7;
         }
 
         /* ANIMATIONS */
@@ -588,7 +608,7 @@
         }
     </style>
 </head>
-<body>
+<body id="top">
 
     <!-- TOP BAR -->
     <div class="container">
@@ -850,7 +870,9 @@
     <!-- FOOTER -->
     <footer>
         <div class="container">
-            <p>SINAN ORHUN · NEW YORK · 2026</p>
+            <a href="#top" class="back-to-top">↑ Back to top</a>
+            <p class="footer-line">SINAN ORHUN · NEW YORK · 2026</p>
+            <p class="footer-personal">Built by Claude. The mistakes are Claude's.</p>
         </div>
     </footer>
 
