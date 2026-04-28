@@ -556,6 +556,26 @@
         }
         .contact-value:hover { color: var(--accent); }
 
+        .contact-elsewhere {
+            margin-top: 36px;
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 16px;
+            color: var(--ink-muted);
+            line-height: 1.6;
+        }
+        .contact-elsewhere a {
+            color: var(--ink-soft);
+            text-decoration: none;
+            border-bottom: 1px solid var(--rule);
+            font-style: italic;
+            transition: color 0.2s ease, border-color 0.2s ease;
+        }
+        .contact-elsewhere a:hover {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+
         @media (max-width: 600px) {
             .contact-item { flex-direction: column; gap: 4px; padding: 14px 0; }
             .contact-value { font-size: 17px; }
@@ -864,6 +884,13 @@
                     <span class="contact-value" style="cursor: default;">New York, NY</span>
                 </div>
             </div>
+
+            <p class="contact-elsewhere">
+                Find me elsewhere on
+                <a href="https://instagram.com/sinan.orhun" target="_blank" rel="noopener">Instagram</a>
+                and
+                <a href="https://twitter.com/sinanorhun" target="_blank" rel="noopener">Twitter</a>.
+            </p>
         </section>
     </div>
 
