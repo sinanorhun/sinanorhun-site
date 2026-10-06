@@ -35,6 +35,38 @@
     <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
     <link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
 
+    <!-- Structured data (helps Google show a clean result for your name) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Sinan Orhun",
+        "url": "https://sinanorhun.com",
+        "image": "https://sinanorhun.com/images/portrait.jpg",
+        "description": "Turkish-American sales and growth operator in New York.",
+        "jobTitle": "Sales Development Representative",
+        "worksFor": {
+            "@type": "Organization",
+            "name": "Glimpse",
+            "url": "https://tryglimpse.com"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "New York",
+            "addressRegion": "NY",
+            "addressCountry": "US"
+        },
+        "sameAs": [
+            "https://www.linkedin.com/in/sinanorhun",
+            "https://twitter.com/sinanorhun",
+            "https://instagram.com/sinan.orhun",
+            "https://www.youtube.com/@TheRealSorhun",
+            "https://sinanorhun.substack.com",
+            "https://open.spotify.com/show/1GdvZBoGuKr3rc61GCrKMn"
+        ]
+    }
+    </script>
+
     <!-- Theme color (mobile browser chrome) -->
     <meta name="theme-color" content="#f5f1e8">
 
@@ -822,7 +854,7 @@
             <div class="projects-grid">
 
                 <a href="https://www.youtube.com/@TheRealSorhun" target="_blank" rel="noopener" class="project project-with-photo">
-                    <div class="project-photo"><img src="images/youtube.jpg" alt="YouTube channel"></div>
+                    <div class="project-photo"><img src="images/youtube.jpg" loading="lazy" decoding="async" alt="YouTube channel"></div>
                     <div class="project-body">
                         <div class="project-meta">YOUTUBE · 2017 —</div>
                         <h3>Vlogs from Istanbul to New York</h3>
@@ -832,7 +864,7 @@
                 </a>
 
                 <div class="project project-with-photo">
-                    <div class="project-photo"><img src="images/hosting.jpg" alt="On stage"></div>
+                    <div class="project-photo"><img src="images/hosting.jpg" loading="lazy" decoding="async" alt="On stage"></div>
                     <div class="project-body">
                         <div class="project-meta">STAND-UP · 2025 —</div>
                         <h3>Open mics, occasionally</h3>
@@ -841,7 +873,7 @@
                 </div>
 
                 <div class="project project-with-photo">
-                    <div class="project-photo"><img src="images/standup.jpg" alt="Hosting on the Bosphorus"></div>
+                    <div class="project-photo"><img src="images/standup.jpg" loading="lazy" decoding="async" alt="Hosting on the Bosphorus"></div>
                     <div class="project-body">
                         <div class="project-meta">HOSTING · 2022 —</div>
                         <h3>Emcee</h3>
@@ -850,7 +882,7 @@
                 </div>
 
                 <a href="https://open.spotify.com/show/1GdvZBoGuKr3rc61GCrKMn" target="_blank" rel="noopener" class="project project-with-photo">
-                    <div class="project-photo"><img src="images/podcast.jpg" alt="Serbest Uçuş Saatleri podcast"></div>
+                    <div class="project-photo"><img src="images/podcast.jpg" loading="lazy" decoding="async" alt="Serbest Uçuş Saatleri podcast"></div>
                     <div class="project-body">
                         <div class="project-meta">PODCAST · TURKISH</div>
                         <h3><em>Serbest Uçuş Saatleri</em></h3>
@@ -860,12 +892,21 @@
                 </a>
 
                 <a href="https://www.youtube.com/watch?v=LVNQb2BzxIg&list=PLZ7fUHgDkwyIM7PXoUI12k1hnUyeCa3Sa" target="_blank" rel="noopener" class="project project-with-photo">
-                    <div class="project-photo"><img src="images/nba-show.jpg" alt="On the NBA show"></div>
+                    <div class="project-photo"><img src="images/nba-show.jpg" loading="lazy" decoding="async" alt="On the NBA show"></div>
                     <div class="project-body">
                         <div class="project-meta">YOUTUBE · 2020 — 2021</div>
                         <h3>NBA Show on <em>Sports Digitale</em></h3>
                         <p>Hosted and moderated a weekly NBA program. 37 episodes, 45,000+ views. The fastest learning loop I've had on speaking on camera, structuring a long-form take, and reading an audience.</p>
                         <div class="project-arrow">Watch episodes →</div>
+                    </div>
+                </a>
+
+                <a href="https://sinanorhun.substack.com" target="_blank" rel="noopener" class="project">
+                    <div class="project-body">
+                        <div class="project-meta">WRITING · SUBSTACK</div>
+                        <h3><em>Free Flying Hours</em></h3>
+                        <p>Personal essays in English and Turkish, also published as <em>Serbest Uçuş Saatleri</em>. Stories from my past, things that happen to me, and whatever I can't stop thinking about, from Beşiktaş to backgammon.</p>
+                        <div class="project-arrow">Read on Substack →</div>
                     </div>
                 </a>
 
@@ -898,23 +939,23 @@
             </p>
             <div class="photo-grid">
                 <figure data-full="images/basketball.jpg" data-caption="At the NBA Store, holding the only Wilson that mattered.">
-                    <img src="images/basketball.jpg" alt="At the NBA store">
+                    <img src="images/basketball.jpg" loading="lazy" decoding="async" alt="At the NBA store">
                     <figcaption>Basketball</figcaption>
                 </figure>
                 <figure data-full="images/besiktas.jpg" data-caption="Beşiktaş Gymnastics Club, Istanbul.">
-                    <img src="images/besiktas.jpg" alt="At Beşiktaş">
+                    <img src="images/besiktas.jpg" loading="lazy" decoding="async" alt="At Beşiktaş">
                     <figcaption>Beşiktaş</figcaption>
                 </figure>
                 <figure data-full="images/tennis.jpg" data-caption="Business Tennis Cup, Istanbul.">
-                    <img src="images/tennis.jpg" alt="On the court">
+                    <img src="images/tennis.jpg" loading="lazy" decoding="async" alt="On the court">
                     <figcaption>Tennis</figcaption>
                 </figure>
                 <figure data-full="images/padel.jpg" data-caption="Padel doubles, fall season.">
-                    <img src="images/padel.jpg" alt="Padel polaroid">
+                    <img src="images/padel.jpg" loading="lazy" decoding="async" alt="Padel polaroid">
                     <figcaption>Padel</figcaption>
                 </figure>
                 <figure data-full="images/twigy.jpg" data-caption="Çarşı.">
-                    <img src="images/twigy.jpg" alt="Twigy with a Beşiktaş kit">
+                    <img src="images/twigy.jpg" loading="lazy" decoding="async" alt="Twigy with a Beşiktaş kit">
                     <figcaption>Çarşı</figcaption>
                 </figure>
             </div>
